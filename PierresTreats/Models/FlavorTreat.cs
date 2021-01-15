@@ -4,7 +4,7 @@ namespace PierresTreats.Models
   {
     public int FlavorTreatId { get; set; }
     public int FlavorId { get; set; }
-    public string TreatId { get; set; }
+    public int TreatId { get; set; }
     public Flavor Flavor { get; set; }
     public Treat Treat { get; set; }
 
