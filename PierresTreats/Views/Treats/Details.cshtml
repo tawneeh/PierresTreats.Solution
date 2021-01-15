@@ -33,4 +33,6 @@ else
 
 <br>
 
-<h3 id="addRelationship">@Html.ActionLink("Add a Flavor", "AddFlavor", new { id = Model.TreatId }, new { @class="addRelationship" })</h3>
+<h3>@Html.ActionLink("Add a Flavor", "AddFlavor", new { id = Model.TreatId }, new { @class="modelOptions" })</h3>
+<h3>@Html.ActionLink("Edit this Treat", "Edit", new { id = Model.TreatId }, new { @class="modelOptions" })</h3>
+<h3>@Html.ActionLink("Delete this Treat", "Delete", new { id = Model.TreatId }, new { @class="modelOptions" })</h3>
