@@ -2,11 +2,10 @@ body {
   background: #3feed4;
 }
 
-.addRelationship {
+.modelOptions {
   font-family: Times;
   text-align: left;
   color: whitesmoke;
-  text-shadow: black;
   font-style: italic;
   padding-left: 15px;
   margin-bottom: 5px;
