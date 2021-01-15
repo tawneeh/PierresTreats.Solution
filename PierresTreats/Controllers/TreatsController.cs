@@ -37,16 +37,12 @@ namespace PierresTreats.Controllers
     }
 
     [HttpPost]
-    public async Task<ActionResult> Create(Treat treat, int FlavorId)
+    public async Task<ActionResult> Create(Treat treat)
     {
       var userId = this.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
       var currentUser = await _userManager.FindByIdAsync(userId);
       treat.User = currentUser;
       _db.Treats.Add(treat);
-      if (FlavorId != 0)
-      {
-        _db.FlavorTreat.Add(new FlavorTreat() { FlavorId = FlavorId, TreatId = treat.TreatId });
-      }
       _db.SaveChanges();
       return RedirectToAction("Index");
     }
@@ -68,12 +64,8 @@ namespace PierresTreats.Controllers
     }
 
     [HttpPost]
-    public ActionResult Edit(Treat treat, int FlavorId)
+    public ActionResult Edit(Treat treat)
     {
-      if (FlavorId != 0)
-      {
-        _db.FlavorTreat.Add(new FlavorTreat() { FlavorId = FlavorId, TreatId = treat.TreatId });
-      }
       _db.Entry(treat).State = EntityState.Modified;
       _db.SaveChanges();
       return RedirectToAction("Index");
@@ -91,7 +83,7 @@ namespace PierresTreats.Controllers
     {
       if (FlavorId != 0)
       {
-        _db.FlavorTreat.Add(new FlavorTreat() { FlavorIdId = FlavorId, TreatId = treat.TreatId });
+        _db.FlavorTreat.Add(new FlavorTreat() { FlavorId = FlavorId, TreatId = treat.TreatId });
       }
       _db.SaveChanges();
       return RedirectToAction("Index");
