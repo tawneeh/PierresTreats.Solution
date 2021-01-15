@@ -7,5 +7,6 @@ namespace PierresTreats.Models
     public string TreatId { get; set; }
     public Flavor Flavor { get; set; }
     public Treat Treat { get; set; }
+
   }
 }
