@@ -7,7 +7,7 @@ namespace PierresTreats.Controllers
   public class HomeController : Controller
   {
     private readonly PierresTreatsContext _db;
-    public HomeController(PierresTreatsContext _db)
+    public HomeController(PierresTreatsContext db)
     {
       _db = db;
     }
