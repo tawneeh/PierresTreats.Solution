@@ -2,19 +2,23 @@
   Layout = "_Layout";
 }
 
-<h1>Pierre's Sweet & Savory Treats</h1>
+<body class="splashImg">
 
-<h5>Available Treats:</h5>
-@foreach (var treat in ViewBag.Treat)
-{
-  <li>@treat.Name</li>
-}
-<h5>Flavors Used:</h5>
-@foreach (var flavor in ViewBag.Flavor)
-{
-  <li>@flavor.Name</li>
-}
+  <h1>Pierre's Sweet & Savory Treats</h1>
 
-<p>@Html.ActionLink("Log in", "Login", "Account")</p>
-<p>@Html.ActionLink("Treats", "Index", "Treats")</p>
-<p>@Html.ActionLink("Flavors", "Index", "Flavors")</p>
+  <h5>Available Treats:</h5>
+  @foreach (var treat in ViewBag.Treat)
+  {
+    <li>@treat.Name</li>
+  }
+  <h5>Flavors Used:</h5>
+  @foreach (var flavor in ViewBag.Flavor)
+  {
+    <li>@flavor.Name</li>
+  }
+
+  <p>@Html.ActionLink("Log in", "Login", "Account")</p>
+  <p>@Html.ActionLink("Treats", "Index", "Treats")</p>
+  <p>@Html.ActionLink("Flavors", "Index", "Flavors")</p>
+
+</body>
