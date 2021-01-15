@@ -16,7 +16,7 @@
 }
 else
 {
-  <h3>Treats this flavor makes delicious:</h3>
+  <h4>Treats this flavor makes delicious:</h4>
   <ul>
   @foreach(var join in Model.Treats)
   {
@@ -30,9 +30,3 @@ else
   }
   </ul>
 }
-
-<p>@Html.ActionLink("Home", "Index", "Home")</p>
-<p>@Html.ActionLink("Flavor List", "Index")</p>
-<p>@Html.ActionLink("Edit this Flavor", "Edit", new { id = Model.FlavorId })</p>
-<p>@Html.ActionLink("Add a Treat", "AddTreat", new { id = Model.FlavorId })</p>
-<p>@Html.ActionLink("Delete this Flavor", "Delete", new { id = Model.FlavorId })</p>
