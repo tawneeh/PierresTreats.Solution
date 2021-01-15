@@ -21,7 +21,7 @@ else
   @foreach(var join in Model.Treats)
   {
     <li>@join.Treat.Name</li>
-    @using (Html.BeginForm("DeleteTreat", "Treats"))
+    @using (Html.BeginForm("DeleteTreat", "Flavors"))
     {
       @Html.Hidden("joinId", @join.FlavorTreatId)
 
