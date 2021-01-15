@@ -9,12 +9,12 @@
   <h5>Available Treats:</h5>
   @foreach (var treat in ViewBag.Treat)
   {
-    <li>@treat.Name</li>
+    <li id="splashList">@treat.Name</li>
   }
   <h5>Flavors Used:</h5>
   @foreach (var flavor in ViewBag.Flavor)
   {
-    <li>@flavor.Name</li>
+    <li id="splashList">@flavor.Name</li>
   }
 
 </body>
