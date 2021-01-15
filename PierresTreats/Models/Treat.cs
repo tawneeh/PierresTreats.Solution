@@ -8,7 +8,7 @@ namespace PierresTreats.Models
     {
       this.Flavors = new HashSet<FlavorTreat>();
     }
-    public int Id { get; set; }
+    public int TreatId { get; set; }
     public string Name { get; set; } 
     public virtual ApplicationUser User { get; set; }
     public ICollection<FlavorTreat> Flavors { get; }
