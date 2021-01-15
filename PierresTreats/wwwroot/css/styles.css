@@ -11,9 +11,13 @@ h5 {
   text-align: left;
 }
 
+body, html {
+  height: 100%;
+}
+
 .splashImg {
-  background-image: url("");
-  height: 500px;
+  background-image: url("https://images.unsplash.com/photo-1486427944299-d1955d23e34d?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1650&q=80");
+  height: 100%;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
