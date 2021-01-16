@@ -21,11 +21,14 @@ else
   @foreach(var join in Model.Treats)
   {
     <li>@join.Treat.Name</li>
-    @using (Html.BeginForm("DeleteTreat", "Flavors"))
+    @if (User.Identity.IsAuthenticated && ViewBag.IsCurrentUser)
     {
-      @Html.Hidden("joinId", @join.FlavorTreatId)
+      @using (Html.BeginForm("DeleteTreat", "Flavors"))
+      {
+        @Html.Hidden("joinId", @join.FlavorTreatId)
 
-      <input type="submit" value="Delete" class="btn btn-dark btn-sm" />
+        <input type="submit" value="Delete" class="btn btn-dark btn-sm" />
+      }
     }
   }
   </ul>
@@ -33,6 +36,9 @@ else
 
 <br>
 
-<h3>@Html.ActionLink("Add a Treat", "addTreat", new { id = Model.FlavorId }, new { @class="modelOptions" })</h3>
-<h3>@Html.ActionLink("Edit this Flavor", "Edit", new { id = Model.FlavorId }, new { @class="modelOptions" })</h3>
-<h3>@Html.ActionLink("Delete this Flavor", "Delete", new { id = Model.FlavorId }, new { @class="modelOptions" })</h3>
+@if (User.Identity.IsAuthenticated && ViewBag.IsCurrentUser)
+{
+  <h3>@Html.ActionLink("Add a Treat", "addTreat", new { id = Model.FlavorId }, new { @class="modelOptions" })</h3>
+  <h3>@Html.ActionLink("Edit this Flavor", "Edit", new { id = Model.FlavorId }, new { @class="modelOptions" })</h3>
+  <h3>@Html.ActionLink("Delete this Flavor", "Delete", new { id = Model.FlavorId }, new { @class="modelOptions" })</h3>
+}
