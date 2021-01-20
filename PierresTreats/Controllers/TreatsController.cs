@@ -11,7 +11,6 @@ using System.Security.Claims;
 
 namespace PierresTreats.Controllers
 {
-  [Authorize]
   public class TreatsController : Controller
   {
     private readonly PierresTreatsContext _db;
@@ -22,17 +21,15 @@ namespace PierresTreats.Controllers
       _db = db;
     }
 
-    public async Task<ActionResult> Index()
+    public ActionResult Index()
     {
-      var userId = this.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
-      var currentUser = await _userManager.FindByIdAsync(userId);
-      var userTreats = _db.Treats.Where(entry => entry.User.Id == currentUser.Id);
-      return View(userTreats);
+      List<Treat> allTreats = _db.Treats.ToList();
+      return View(allTreats);
     }
 
+    [Authorize]
     public ActionResult Create()
     {
-      ViewBag.FlavorId = new SelectList(_db.Flavors, "FlavorId", "Name");
       return View();
     }
 
@@ -52,7 +49,10 @@ namespace PierresTreats.Controllers
       var thisTreat = _db.Treats
           .Include(treat => treat.Flavors)
           .ThenInclude(join => join.Flavor)
+          .Include(treat => treat.User)
           .FirstOrDefault(treat => treat.TreatId == id);
+      var userId = this.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+      ViewBag.IsCurrentUser = userId != null ? userId == thisTreat.User.Id : false;
       return View(thisTreat);
     }
 
