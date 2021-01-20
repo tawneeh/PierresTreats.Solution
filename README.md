@@ -36,8 +36,7 @@ AppSettings
 * Update the Server, Port, and User ID as needed.
 
 Import Database using Entity Framework Core
-* Navigate to PierresTreats.Solution/PierresTreats and type `dotnet ef migrations add <MigrationName>` into the terminal
-* Then, type `dotnet ef database update` into the terminal to create your database tables.
+* Navigate to PierresTreats.Solution/PierresTreats and type `dotnet ef database update` into the terminal to create your database tables.
 
 Launch this Application
 * Navigate to PierresTreats.Solution/PierresTreats and type `dotnet restore` into the terminal
